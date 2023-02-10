@@ -1,2 +1,2 @@
 #!/bin/bash
-chown vincent:staff www-data: _hello
+chown -h vincent:staff www-data: _hello
