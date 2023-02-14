@@ -1,0 +1,2 @@
+#!/bin/bash
+echo {A..Z}{A..Z}/n | fmt -w 2 | tr -d '/n','oo'     
