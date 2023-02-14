@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $(($BREATH ** $LOVE))
+echo echo 'ibase=2; 10100111001' | bc
