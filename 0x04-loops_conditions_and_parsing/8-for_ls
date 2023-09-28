@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# This scrit displays a list of files in the current directory
+for f in *; do
+	file=$(echo "$f" | cut -d '-' -f 2-)
+	echo "$file"
+done
