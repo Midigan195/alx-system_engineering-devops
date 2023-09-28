@@ -5,7 +5,9 @@ while [ "$i" -le "10" ]; do
 	if [ "$i" -eq "9" ]
 	then
 		echo "Hi"
-	else
+	fi
+	if [ "$i" -ne "9" ]
+	then
 		echo "Best School"
 	fi
 	i=$((i+1))
