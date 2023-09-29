@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Get pid of program and kill the process
+pkill -f "7-highlander"
