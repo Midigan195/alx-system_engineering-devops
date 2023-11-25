@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script is used to connect to a specified server
+
+ssh -i ~/.ssh/school ubuntu@107.22.142.168
