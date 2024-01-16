@@ -1,25 +1,34 @@
 #!/usr/bin/python3
+
 """
-This module contains a functin that returns the top 10 post of a subreddit
+prints the titles of the first 10 hot posts listed for a given subreddit
 """
-import requests
+
+from requests import get
 
 
 def top_ten(subreddit):
     """
-    Print the 10 hottest posts of a subreddit.
+    function that queries the Reddit API and prints the titles of the first
+    10 hot posts listed for a given subreddit
     """
-    url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
-    headers = {
-        "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/midigan)"
-    }
-    params = {
-        "limit": 10
-    }
-    response = requests.get(url, headers=headers, params=params,
-                            allow_redirects=False)
-    if response.status_code == 404:
+
+    if subreddit is None or not isinstance(subreddit, str):
         print("None")
-        return
-    results = response.json().get("data")
-    [print(c.get("data").get("title")) for c in results.get("children")]
+
+    user_agent = {'User-agent': 'linux:0x16.api:v1.0.0 (by /u/midigan'}
+    params = {'limit': 10}
+    url = 'https://www.reddit.com/r/{}/hot/.json'.format(subreddit)
+
+    response = get(url, headers=user_agent, params=params)
+    results = response.json()
+
+    try:
+        my_data = results.get('data').get('children')
+        if not my_data:
+            print("None")
+        for i in my_data:
+            print(i.get('data').get('title'))
+
+    except Exception:
+        print("None")
