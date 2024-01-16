@@ -23,7 +23,7 @@ def number_of_subscribers(subreddit):
     try:
         results = results.get('data').get('subscribers')
         if results is None:
-             return results
+            return results
         else:
             return 0
 
